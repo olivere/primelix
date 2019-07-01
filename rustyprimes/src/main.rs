@@ -4,7 +4,7 @@ fn main() {
     let stdin = io::stdin();
     for line in stdin.lock().lines() {
         let input = line.unwrap();
-        match input.parse::<u16>() {
+        match input.parse::<u32>() {
             Ok(max_num) => sieve(max_num as usize),
             Err(_) => print!("[error: Bad Input]"),
         }
