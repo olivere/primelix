@@ -12,13 +12,13 @@ fn main() {
 }
 
 fn sieve(max_num: usize) {
-    let mut numbers = Vec::with_capacity(max_num);
-    numbers.resize(max_num, 1);
+    let mut numbers = vec![true; max_num];
+    numbers.resize(max_num, true);
 
     for p in 2..max_num {
-        if numbers[p] == 1 {
+        if numbers[p] == true {
             for mult in (2*p..max_num).step_by(p) {
-                numbers[mult] = 0;
+                numbers[mult] = false;
             }
         }
     }
@@ -27,7 +27,7 @@ fn sieve(max_num: usize) {
     let mut first_prime = true;
 
     for idx in 2..max_num {
-        if numbers[idx] == 1 {
+        if numbers[idx] == true {
             if first_prime {
                 first_prime = false;
             } else {
