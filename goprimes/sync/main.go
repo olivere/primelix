@@ -6,7 +6,6 @@ import (
 	"math"
 	"os"
 	"strconv"
-	"strings"
 )
 
 func main() {
@@ -42,17 +41,15 @@ func sieve(max int64) {
 		}
 	}
 
-	var sb strings.Builder
-	sb.WriteString("[ok: ")
+	fmt.Print("[ok: ")
 
 	for i := int64(2); i < max; i++ {
 		if !vec[i] {
 			if i > int64(2) {
-				sb.WriteByte(',')
+				fmt.Print(",")
 			}
-			sb.WriteString(fmt.Sprint(i))
+			fmt.Print(i)
 		}
 	}
-	sb.WriteByte(']')
-	fmt.Println(sb.String())
+	fmt.Println("]")
 }
