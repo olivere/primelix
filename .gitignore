@@ -27,7 +27,7 @@ cprimes/cprimes
 cprimes/cprimes.o
 
 # Ignore Go binaries
-goprimes/sync
-goprimes/sync.exe
-goprimes/async
-goprimes/async.exe
+goprimes/sieve_sync
+goprimes/sieve_sync.exe
+goprimes/sieve_async
+goprimes/sieve_async.exe

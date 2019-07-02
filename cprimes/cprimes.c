@@ -58,7 +58,6 @@ int main () {
       /* fprintf(stderr, "Read %lu from stdin.", max_num); */
       sieve(max_num);
     } else {
-      printf("[error: Bad Input]");
       exit(0);
     }
 
