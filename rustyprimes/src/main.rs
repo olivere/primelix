@@ -23,7 +23,11 @@ fn sieve(max_num: usize) {
         }
     }
 
-    print!("[ok: ");
+    let stdout = io::stdout();
+    let mut writer = stdout.lock();
+    //let mut handle = io::BufWriter::new(stdout);
+
+    write!(writer, "[ok: ").unwrap();
     let mut first_prime = true;
 
     for idx in 2..max_num {
@@ -31,15 +35,14 @@ fn sieve(max_num: usize) {
             if first_prime {
                 first_prime = false;
             } else {
-                print!(",");
+                write!(writer, ",").unwrap();
             }
 
-            print!("{}", idx);
+            write!(writer, "{}", idx).unwrap();
         }
     }
 
-    print!("]");
-    let stdout = io::stdout();
-    stdout.lock().flush().unwrap();
+    write!(writer, "]").unwrap();
+    writer.flush().unwrap();
 }
 

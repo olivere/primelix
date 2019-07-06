@@ -40,7 +40,7 @@ defmodule Primelix.RustyPrimeServer do
   end
 
   defp start_port do
-    port = Port.open({:spawn, "./rustyprimes/target/debug/rustyprimes"}, [:binary])
+    port = Port.open({:spawn, "./rustyprimes/target/release/rustyprimes"}, [:binary])
     monitor = Port.monitor(port)
     %RustyPrimes{port: port, monitor: monitor}
   end

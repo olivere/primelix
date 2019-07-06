@@ -8,7 +8,7 @@ defmodule Mix.Tasks.Rustyprimes do
     Mix.Shell.IO.info("------[ Compiling Rustyprimes ]---------")
     make = case args do
              [] ->
-               @make_cmd <> " build"
+               @make_cmd <> " build --release"
              _ ->
                @make_cmd <> Enum.join(args, " ")
     end
