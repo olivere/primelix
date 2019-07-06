@@ -6,6 +6,7 @@ import (
 	"math"
 	"os"
 	"strconv"
+	"strings"
 )
 
 func main() {
@@ -31,6 +32,10 @@ func main() {
 
 func sieve(max int64) {
 	vec := make([]bool, max)
+
+	// No need to optimize here
+	// 1. math.Sqrt is already fast (https://golang.org/src/math/sqrt.go)
+	// 2. It's a single op anyway
 	n := int64(math.Sqrt(float64(max)))
 
 	for i := int64(2); i < n; i++ {
@@ -41,15 +46,17 @@ func sieve(max int64) {
 		}
 	}
 
-	fmt.Print("[ok: ")
-
+	var sb strings.Builder
+	sb.WriteString("[ok: ")
 	for i := int64(2); i < max; i++ {
 		if !vec[i] {
 			if i > int64(2) {
-				fmt.Print(",")
+				sb.WriteByte(',')
 			}
-			fmt.Print(i)
+			sb.WriteString(fmt.Sprint(i))
 		}
 	}
-	fmt.Println("]")
+	sb.WriteByte(']')
+
+	fmt.Println(sb.String())
 }
