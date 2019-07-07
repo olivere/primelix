@@ -34,3 +34,7 @@ goprimes/sieve_async.exe
 
 # Ignore Java binaries
 jprimes/*.class
+
+# Ignore Crystal binaries
+crystalprimes/primes
+crystalprimes/primes.dwarf

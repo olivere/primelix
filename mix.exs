@@ -14,7 +14,7 @@ defmodule Primelix.MixProject do
 
   defp aliases do
     [
-      benchmark: ["deps.get", "compile", "goprimes", "cprimes", "rustyprimes", "jprimes", "run benchmark.exs"]
+      benchmark: ["deps.get", "compile", "goprimes", "cprimes", "rustyprimes", "jprimes", "crystalprimes", "run benchmark.exs"]
     ]
   end
 
