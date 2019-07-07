@@ -23,13 +23,9 @@ void sieve (unsigned long int max_num) {
 
   printf("[ok: ");
 
-  unsigned int first_prime = 1;
-
   for(i = 2; i < max_num; i++) {
     if (numbers[i] == 0) {
-      if (first_prime == 1) {
-        first_prime = 0;
-      } else {
+      if (i > 2) {
         printf(",");
       }
 
