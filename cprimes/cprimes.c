@@ -5,7 +5,7 @@
 #include <unistd.h>
 
 void sieve (unsigned long int max_num) {
-  unsigned char *numbers = NULL;
+  unsigned char *restrict numbers = NULL;
   unsigned long i,j;
 
   numbers = calloc(sizeof(unsigned char), max_num);
