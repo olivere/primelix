@@ -1,10 +1,11 @@
-defmodule Primelix.RustyPrimeServer do
+defmodule Primelix.GoAsyncPrimeServer do
   use GenServer
 
-  defmodule RustyPrimes do
+  defmodule GoPrimes do
     defstruct port: nil, monitor: nil
   end
 
+  # TODO: make implementation more robust
   require IEx
 
   def gen_prime(max_num) do
@@ -17,32 +18,32 @@ defmodule Primelix.RustyPrimeServer do
 
   @impl true
   def init(_args) do
-    rusty_primes = start_port()
-    {:ok, rusty_primes}
+    goprimes = start_port()
+    {:ok, goprimes}
   end
 
   @impl true
-  def handle_call({:gen_prime, max_num}, _from, rusty_primes) do
+  def handle_call({:gen_prime, max_num}, _from, goprimes) do
     max_num_string = Integer.to_string(max_num) <> "\n"
-    send(rusty_primes.port, {self(), {:command, max_num_string}})
-    primes = receive_primes(rusty_primes.port, [], "")
-    {:reply, primes, rusty_primes}
+    send(goprimes.port, {self(), {:command, max_num_string}})
+    primes = receive_primes(goprimes.port, [], "")
+    {:reply, primes, goprimes}
   end
 
   @impl true
-  def handle_info({:DOWN, _ref, :port, port, _reason}, rusty_primes) do
-    if port == rusty_primes.port do
-      new_rusty_primes = start_port()
-      {:noreply, new_rusty_primes}
+  def handle_info({:DOWN, _ref, :port, port, _reason}, goprimes) do
+    if port == goprimes.port do
+      new_goprimes = start_port()
+      {:noreply, new_goprimes}
     else
-      {:noreply, rusty_primes}
+      {:noreply, goprimes}
     end
   end
 
   defp start_port do
-    port = Port.open({:spawn, "./rustyprimes/target/release/rustyprimes"}, [:binary])
+    port = Port.open({:spawn, "./goprimes/sieve_async"}, [:binary])
     monitor = Port.monitor(port)
-    %RustyPrimes{port: port, monitor: monitor}
+    %GoPrimes{port: port, monitor: monitor}
   end
 
   defp receive_primes(port, primes_so_far, last_string) do

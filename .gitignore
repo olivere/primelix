@@ -25,3 +25,9 @@ primelix-*.tar
 # Ignore cprimes binaries
 cprimes/cprimes
 cprimes/cprimes.o
+
+# Ignore Go binaries
+goprimes/sieve_sync
+goprimes/sieve_sync.exe
+goprimes/sieve_async
+goprimes/sieve_async.exe
