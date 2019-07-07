@@ -9,6 +9,7 @@ benchmark = %{
   "java_primes" => fn -> Primelix.JPrimeServer.gen_prime(max_num) end,
   "ruby_primes" => fn -> Primelix.RubyPrimeServer.gen_prime(max_num) end,
   "crystal_primes" => fn -> Primelix.CrystalPrimeServer.gen_prime(max_num) end,
+  "swift_primes" => fn -> Primelix.SwiftPrimeServer.gen_prime(max_num) end,
 }
 
 Benchee.run(benchmark)

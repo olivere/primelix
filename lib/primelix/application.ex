@@ -18,7 +18,8 @@ defmodule Primelix.Application do
       {Primelix.GoAsyncPrimeServer, []},
       {Primelix.JPrimeServer, []},
       {Primelix.RubyPrimeServer, []},
-      {Primelix.CrystalPrimeServer, []}
+      {Primelix.CrystalPrimeServer, []},
+      {Primelix.SwiftPrimeServer, []}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
