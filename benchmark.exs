@@ -7,6 +7,7 @@ benchmark = %{
   "go_primes_sync" => fn -> Primelix.GoSyncPrimeServer.gen_prime(max_num) end,
   "go_primes_async" => fn -> Primelix.GoAsyncPrimeServer.gen_prime(max_num) end,
   "java_primes" => fn -> Primelix.JPrimeServer.gen_prime(max_num) end,
+  "ruby_primes" => fn -> Primelix.RubyPrimeServer.gen_prime(max_num) end,
 }
 
 Benchee.run(benchmark)
