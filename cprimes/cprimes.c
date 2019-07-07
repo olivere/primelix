@@ -8,15 +8,14 @@ void sieve (unsigned long int max_num) {
   unsigned char *numbers = NULL;
   unsigned long i,j;
 
-  numbers = malloc(sizeof(unsigned char) * max_num);
-  memset(numbers, 1, max_num);
+  numbers = calloc(sizeof(unsigned char), max_num);
 
   /* This is the actual sieve !!! */
 
   for (i = 2; i < sqrt(max_num); i++) {
-    if (numbers[i]) {
+    if (numbers[i] == 0) {
       for(j = 2*i; j < max_num; j+=i) {
-        numbers[j] = 0;
+        numbers[j] = 1;
       }
     }
   }
@@ -27,7 +26,7 @@ void sieve (unsigned long int max_num) {
   unsigned int first_prime = 1;
 
   for(i = 2; i < max_num; i++) {
-    if (numbers[i]) {
+    if (numbers[i] == 0) {
       if (first_prime == 1) {
         first_prime = 0;
       } else {
