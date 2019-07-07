@@ -5,3 +5,7 @@ authors = ["Marcus Autenrieth <myself@prakti.org>"]
 edition = "2018"
 
 [dependencies]
+
+
+[profile.release]
+opt-level = 3

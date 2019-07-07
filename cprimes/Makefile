@@ -1,7 +1,7 @@
 TARGET = cprimes
 LIBS = -lm
 CC = gcc
-CFLAGS = -g -ansi -Wall
+CFLAGS = -g -std=gnu11 -Wall -O3
 
 .PHONY: default all clean
 
