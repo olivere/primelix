@@ -15,7 +15,8 @@ defmodule Primelix.Application do
       {Primelix.CPrimeServer, []},
       {Primelix.RustyPrimeServer, []},
       {Primelix.GoSyncPrimeServer, []},
-      {Primelix.GoAsyncPrimeServer, []}
+      {Primelix.GoAsyncPrimeServer, []},
+      {Primelix.JPrimeServer, []}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
