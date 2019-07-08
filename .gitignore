@@ -34,3 +34,6 @@ goprimes/sieve_async.exe
 
 # Ignore Java binaries
 jprimes/*.class
+
+# Ignore *.so files
+*.so
